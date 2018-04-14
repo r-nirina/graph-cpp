@@ -8,14 +8,20 @@
 class GNode {
 
 	public:
-		GNode(int i);
+		GNode(int id);
 		~GNode();
 
-		void add_neighbor(GNode* n);
 		bool is_neighbor(GNode* n);
+		void add_neighbor(GNode* n);
+		void remove_neighbor(GNode* n);
+
+		unsigned int num_neighbors();
 
 		int id;
-		std::vector<GNode*> neighbors;
+		std::vector<GEdge> neighbors;
+
+	private:
+		int _is_neighbor(GNode* n);
 
 };
 

@@ -22,20 +22,20 @@ CLEAN_OBJECTS = $(OBJECTS)
 TARGETS = 
 
 
-# ------------- test_union_find -------------
+# ------------- test_g_graph -------------
 
-UNION_FIND_SOURCES = test-g-graph.cpp
-UNION_FIND_OBJECTS = $(UNION_FIND_SOURCES:.cpp=.o)
+G_GRAPH_SOURCES = test-g-graph.cpp
+G_GRAPH_OBJECTS = $(G_GRAPH_SOURCES:.cpp=.o)
 
-test_union_find.out : $(UNION_FIND_OBJECTS) $(OBJECTS) $(HEADERS)
-	$(CXX) $(UNION_FIND_OBJECTS) $(OBJECTS) -o $@ $(LDFLAGS)
+test_g_graph.out : $(G_GRAPH_OBJECTS) $(OBJECTS) $(HEADERS)
+	$(CXX) $(G_GRAPH_OBJECTS) $(OBJECTS) -o $@ $(LDFLAGS)
 	
-$(UNION_FIND_OBJECTS): %.o : %.cpp
+$(G_GRAPH_OBJECTS): %.o : %.cpp
 	$(CXX) -MMD $(CXXFLAGS) -c $< -o $@
 
-all : test_union_find.out
-TARGETS += test_union_find.out
-CLEAN_OBJECTS += $(UNION_FIND_OBJECTS)
+all : test_g_graph.out
+TARGETS += test_g_graph.out
+CLEAN_OBJECTS += $(G_GRAPH_OBJECTS)
 
 
 # ------------- cleanup -------------
